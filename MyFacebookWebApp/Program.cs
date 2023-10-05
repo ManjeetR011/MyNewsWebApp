@@ -1,14 +1,12 @@
-using MyFacebookWebApp.Interfaces;
-using MyFacebookWebApp.Repository;
-using MyFacebookWebApp.Services;
+using NewsFeedWebApp.Interfaces;
+using NewsFeedWebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<IPostService, PostService>();
-builder.Services.AddTransient<IPostRepository,PostRepository>();
+builder.Services.AddScoped<IStoryService, StoryService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -1,4 +1,4 @@
-﻿namespace MyFacebookWebApp.ViewModels
+﻿namespace NewsFeedWebApp.ViewModels
 {
     public class SearchItem
     {
