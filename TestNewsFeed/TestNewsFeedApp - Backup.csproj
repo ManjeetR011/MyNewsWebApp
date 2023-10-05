@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyFacebookWebApp\NewsfeedWebApp.csproj" />
     <ProjectReference Include="..\NewFeedWebApp\NewsfeedWebApp.csproj" />
   </ItemGroup>
 
