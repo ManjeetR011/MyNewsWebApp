@@ -15,7 +15,7 @@ namespace TestNewsFeedApp
 
         [SetUp]
         public void SetUp()
-            {
+        {
             stories = new List<Story>()
             {
               new Story() {
@@ -32,7 +32,7 @@ namespace TestNewsFeedApp
         }
 
         [Test]
-        public async Task TestGetStories()
+        public async Task testgetposts()
         {
            
             var result =  await storyService.GetNewStories();
