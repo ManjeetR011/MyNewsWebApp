@@ -6,6 +6,9 @@ using System.Net.Http.Headers;
 
 namespace NewsFeedWebApp.Services
 {
+    /// <summary>
+    /// Stories service
+    /// </summary>
     public class StoryService : IStoryService
     {
         string Baseurl = "https://hacker-news.firebaseio.com/";
@@ -13,7 +16,10 @@ namespace NewsFeedWebApp.Services
 
         public StoryService() {
         }
-
+        /// <summary>
+        /// Get the list of new stories
+        /// </summary>
+        /// <returns>List of new stories</returns>
         public async Task<List<Story>> GetNewStories()
         {
             var storyIdlist = await GetTopStories();
@@ -25,7 +31,10 @@ namespace NewsFeedWebApp.Services
             
         }
        
-
+        /// <summary>
+        /// Get the Id of top stories
+        /// </summary>
+        /// <returns>List of  Story Id</returns>
         public async Task<int[]> GetTopStories()
         {
 
@@ -53,6 +62,11 @@ namespace NewsFeedWebApp.Services
             }
         }
 
+        /// <summary>
+        /// Get the item details
+        /// </summary>
+        /// <param name="idList"></param>
+        /// <returns>List of stories with details</returns>
         public async Task<List<Story>> GetItems(int[] idList)
         {
             List<Story> storyList = new List<Story>();

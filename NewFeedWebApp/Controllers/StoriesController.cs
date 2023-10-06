@@ -4,20 +4,32 @@ using NewsFeedWebApp.Interfaces;
 using NewsFeedWebApp.ViewModels;
 using System.Globalization;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace NewsFeedWebApp.Controllers
 {
+    /// <summary>
+    /// Controller class for stories
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class StoriesController : ControllerBase
     {
+        /// <summary>
+        /// Define the private members
+        /// </summary>
         // GET: api/<StoriyController>
         private readonly string GetPostsCacheKey = "GetPosts";
         private readonly IStoryService storyService;
         private readonly IMemoryCache memoryCache;
         private ILogger<StoriesController> logger;
         private MemoryCacheEntryOptions cacheOptions;
+
+        /// <summary>
+        /// Intialize the private member value
+        /// </summary>
+        /// <param name="_storyService"></param>
+        /// <param name="_memoryCache"></param>
+        /// <param name="_logger"></param>
         public StoriesController(IStoryService _storyService, IMemoryCache _memoryCache, ILogger<StoriesController> _logger)
         {
             memoryCache = _memoryCache;
@@ -31,6 +43,10 @@ namespace NewsFeedWebApp.Controllers
 
         }
 
+        /// <summary>
+        /// Get Method to fectch new stories 
+        /// </summary>
+        /// <returns>List of new stories</returns>
         [HttpGet]
         public async Task<ActionResult<List<Story>>> Get()
         {
