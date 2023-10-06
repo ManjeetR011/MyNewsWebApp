@@ -1,21 +1,28 @@
-
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Moq;
-using NewsFeedWebApp.Interfaces;
+using NewsFeedWebApp.Controllers;
 using NewsFeedWebApp.Services;
 using NewsFeedWebApp.ViewModels;
 using NUnit.Framework.Internal;
 
-namespace TestNewsFeedApp
+namespace TestNewsFeedWebAppNew
 {
-    public class Tests
+    public class TestStoriesController
     {
-
-        private StoryService storyService;
+        private Mock<StoryService> _storyService;
+        private Mock<ILogger<StoriesController>> logger;
         private List<Story> stories;
+        private StoriesController storiesController;
+        private Mock<IMemoryCache> _memoryCache;
 
-        [SetUp]
-        public void SetUp()
-            {
+        public TestStoriesController(IMemoryCache memoryCache)
+        {
+            logger = new Mock<ILogger<StoriesController>>();
+            _memoryCache = new Mock<IMemoryCache>();
+            _storyService = new Mock<StoryService>();
+            storiesController = new StoriesController(_storyService.Object, _memoryCache.Object, logger.Object);
             stories = new List<Story>()
             {
               new Story() {
@@ -27,19 +34,28 @@ namespace TestNewsFeedApp
                    Type = "story",
                }
             };
-            storyService = new StoryService();
-
         }
 
-        [Test]
-        public async Task TestGetStories()
+        [Fact]
+        public void TestGet()
         {
-           
-            var result =  await storyService.GetNewStories();
-            Assert.NotZero(result.Count);
+            //var set = GetTestAttributes();
+            _storyService.Setup(x => x.GetNewStories())
+                .ReturnsAsync(stories);
+            //act
+            var result = storiesController.Get();
+
+            //assert
+            Assert.NotNull(result);
         }
+        public TestStoriesController GetTestAttributes()
+        {
+            var services = new ServiceCollection();
+            services.AddMemoryCache();
+            var serviceProvider = services.BuildServiceProvider();
 
-       
-
+            var memoryCache = serviceProvider.GetService<IMemoryCache>();
+            return new TestStoriesController(memoryCache);
+        }
     }
 }
