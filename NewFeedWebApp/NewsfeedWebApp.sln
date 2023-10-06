@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsfeedWebApp", "NewsfeedWebApp.csproj", "{720769E3-1DFE-4D7A-B49E-D027AFD8FA76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestNewsFeedApp", "..\TestNewsFeed\TestNewsFeedApp.csproj", "{8676E0ED-58ED-4117-B7C9-102827321D14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{720769E3-1DFE-4D7A-B49E-D027AFD8FA76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720769E3-1DFE-4D7A-B49E-D027AFD8FA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720769E3-1DFE-4D7A-B49E-D027AFD8FA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720769E3-1DFE-4D7A-B49E-D027AFD8FA76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8676E0ED-58ED-4117-B7C9-102827321D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8676E0ED-58ED-4117-B7C9-102827321D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8676E0ED-58ED-4117-B7C9-102827321D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8676E0ED-58ED-4117-B7C9-102827321D14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F0FD7CA-6846-4EEF-86AE-6AF1BFE4CB28}
+	EndGlobalSection
+EndGlobal
